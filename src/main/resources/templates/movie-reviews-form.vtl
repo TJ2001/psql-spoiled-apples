@@ -1,0 +1,14 @@
+<h1>Add a review to $movie.getTitle()</h1>
+
+<form action="/reviews" method="post">
+  <input id="movieId" name="movieId" type="hidden" value="$movie.getId()">
+
+  <div class="form-group">
+    <label for="reviewer">Name</label>
+    <input id="reviewer" name="reviewer" type="text" class="form-control">
+    <label for="content">Name</label>
+    <input id="content" name="content" type="text" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-success">Add Review</button>
+</form>

@@ -1,0 +1,18 @@
+
+<h1>$review.getReviewer()</h1>
+<!-- <h2>Completed?:  $review.isCompleted()</h2> -->
+<h2> Belongs to: $movie.getTitle() list.</h2>
+
+<h2>Edit review:</h2>
+
+<form action="/categories/$review.getMovieId()/reviews/$review.getId()" method="post">
+  <label for="reviewer">Reviewer</label>
+  <input id="reviewer" name="reviewer" type="text">
+  <button type="submit" class="btn btn-info">Update Review</button>
+</form>
+
+<form action="/categories/$review.getMovieId()/reviews/$review.getId()/delete" method="post">
+  <button type="submit" class="btn btn-danger" id="delete-review">Delete Review</button>
+</form>
+
+<a href="/categories/$movie.getId()">Return to $movie.getTitle()</a>

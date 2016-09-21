@@ -1,0 +1,13 @@
+<h1>Review list!</h1>
+
+#if ($reviews)
+  <ul>
+    #foreach ($review in $reviews)
+      <li><a href="/reviews/$review.getId()">$review.getReviewer()</a></li>
+    #end
+  </ul>
+#else
+  <p>No reviews!</p>
+#end
+
+<a href="/reviews/new">Add New Review</a>

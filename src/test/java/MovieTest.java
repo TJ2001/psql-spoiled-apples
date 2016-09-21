@@ -3,6 +3,7 @@ import org.junit.*;
 import static org.junit.Assert.*;
 // import java.util.Date;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 
 public class MovieTest {
   private Movie mMovie;
@@ -53,12 +54,12 @@ public class MovieTest {
   @Test
   public void equals_returnsTrueIfNamesAretheSame() {
     Movie secondMovie = new Movie("Indian Jones", "Parody");
-    assertTrue(firstMovie.equals(secondMovie));
+    assertTrue(mMovie.equals(secondMovie));
   }
 
   @Test
   public void save_savesIntoDatabase_true() {
-    myMovie.save();
+    mMovie.save();
     assertTrue(Movie.all().get(0).equals(mMovie));
   }
 
@@ -74,10 +75,10 @@ public class MovieTest {
     mMovie.save();
     Review firstReview = new Review("Reviewer123", "This movie is awesome.", mMovie.getId());
     firstReview.save();
-    Review secondReview = new Review("Lane21", "This movie sucks.", myMovie.getId());
+    Review secondReview = new Review("Lane21", "This movie sucks.", mMovie.getId());
     secondReview.save();
     Review[] reviews = new Review[] { firstReview, secondReview };
-    assertTrue(myMovie.getReviews().containsAll(Arrays.asList(reviews)));
+    assertTrue(mMovie.getReviews().containsAll(Arrays.asList(reviews)));
   }
 }
 

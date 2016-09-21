@@ -1,0 +1,10 @@
+<h1>$movie.getTitle() reviews:</h1>
+
+<ul>
+  #foreach($review in $movie.getReviews())
+   <li><a href="/movies/$movie.getId()/reviews/$review.getId()">$review.getReviewer()</a></li>
+  #end
+</ul>
+
+<a href="/movies/$movie.getId()/reviews/new">Add a new review</a>
+<a href="/movies">All movies</a>

@@ -1,0 +1,7 @@
+<h1>All movies</h1>
+<ul>
+  #foreach ($movie in $movies)
+    <li><a href="/movies/$movie.getId()">$movie.getTitle()</a></li>
+  #end
+</ul>
+<a href="/movies/new">Add New Movie</a>

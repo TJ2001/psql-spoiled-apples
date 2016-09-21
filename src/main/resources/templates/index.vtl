@@ -1,0 +1,38 @@
+
+<h1>Movies</h1>
+
+#if($movies)
+  <p>Click on a movie to see its reviews:</p>
+  <ul>
+    #foreach ($movie in $movies)
+      <li><a href="/movies/$movie.getId()">$movie.getTitle()</a></li>
+    #end
+  </ul>
+#else
+  <p>There are no movies yet!</p>
+#end
+
+<h2>New Movie:</h2>
+
+<form action="/movies" method="post">
+  <label for="title">Movie title</label>
+  <input id="title" name="title" type="text">
+  <button type="submit" class="btn btn-success">Add Movie</button>
+</form>
+
+<h2>New Review:</h2>
+
+<form action="/reviews" method="post">
+  <label for="movieId">Select a List</label>
+  <select id='movieId' name='movieId' type='text'>
+    #foreach($movie in $movies)
+      <option value="$movie.getId()">$movie.getTitle()</option>
+    #end
+  </select>
+  <div class="form-group">
+    <label for="reviewer">Name</label>
+    <input id="reviewer" name="reviewer" type="text" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-success">Add Review</button>
+</form>
