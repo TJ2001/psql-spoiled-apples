@@ -6,6 +6,11 @@ import java.time.LocalDateTime;
 
 public class MovieTest {
   private Movie mMovie;
+  //
+  // @Before
+  // public void openConnection() {
+  //   DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/spoiled_apples_test", null, null);
+  // }
 
   @Before
   public void initialize(){
@@ -33,6 +38,8 @@ public class MovieTest {
   @Test
   public void Movie_instantiatesWithID_1() {
     mMovie.save();
-    assertEquals(1, mMovie.getId());
+    assertTrue(mMovie.getId() > 0);
   }
 }
+
+//We were going to change "review" to "reviews" (see console)

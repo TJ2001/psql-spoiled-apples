@@ -7,9 +7,9 @@ import org.sql2o.*;
 
 public class Review {
   private String reviewer;
-  private LocalDateTime createdAt;
+  // private LocalDateTime createdAt;
   // private Date createdAt;
-  private boolean apple;
+  // private boolean apple;
   private String content;
   private int id;
   private int movieId;
@@ -18,8 +18,7 @@ public class Review {
     this.reviewer = reviewer;
     this.content = content;
     this.movieId = movieId;
-    createdAt = LocalDateTime.now();
-    this.movieId = movieId;
+    // createdAt = LocalDateTime.now();
   }
 
   public String getReviewer() {
@@ -29,10 +28,10 @@ public class Review {
   public String getContent() {
     return content;
   }
-
-  public boolean isApple() {
-    return apple;
-  }
+  //
+  // public boolean isApple() {
+  //   return apple;
+  // }
 
   public int getMovieId() {
     return movieId;
@@ -46,12 +45,12 @@ public class Review {
   //   return createdAt;
   // }
 
-  public LocalDateTime getCreatedAt() {
-    return createdAt;
-  }
+  // public LocalDateTime getCreatedAt() {
+  //   return createdAt;
+  // }
 
   public static List<Review> all() {
-    String sql = "SELECT * FROM review;";
+    String sql = "SELECT * FROM reviews;";
     try(Connection con = DB.sql2o.open()) {
       return con.createQuery(sql).executeAndFetch(Review.class);
     }
@@ -59,7 +58,7 @@ public class Review {
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO review(reviewer, content, movieId) VALUES (:reviewer, :content, :movieId);";
+      String sql = "INSERT INTO reviews(reviewer, content, movieId) VALUES (:reviewer, :content, :movieId);";
       this.id = (int) con.createQuery(sql, true)
         .addParameter("reviewer", this.reviewer)
         .addParameter("content", this.content)
@@ -71,7 +70,7 @@ public class Review {
 
   public static Review find(int id) {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT * FROM review WHERE id=:id;";
+      String sql = "SELECT * FROM reviews WHERE id=:id;";
       Review review = con.createQuery(sql)
         .addParameter("id", id)
         .executeAndFetchFirst(Review.class);
@@ -81,7 +80,7 @@ public class Review {
 
   public void delete() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "DELETE FROM review WERE id=:id;";
+      String sql = "DELETE FROM reviews WHERE id=:id;";
       con.createQuery(sql)
         .addParameter("id", id)
         .executeUpdate();
@@ -90,7 +89,7 @@ public class Review {
 
   public void update(String content) {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "UPDATE review SET content = :content WHERE id=:id;";
+      String sql = "UPDATE reviews SET content = :content WHERE id=:id";
       con.createQuery(sql)
         .addParameter("content", content)
         .addParameter("id", id)
@@ -107,7 +106,7 @@ public class Review {
       return this.getReviewer().equals(newReview.getReviewer()) &&
         this.getContent().equals(newReview.getContent()) &&
         this.getId() == newReview.getId() &&
-        this.getMovieId() == newReview.getId();
+        this.getMovieId() == newReview.getMovieId();
     }
   }
 }

@@ -43,7 +43,7 @@ public class Movie {
 
   public static Movie find(int id) {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT * FROM movie WHERE id=:id;";
+      String sql = "SELECT * FROM movies WHERE id=:id;";
       Movie movie = con.createQuery(sql)
         .addParameter("id", id)
         .executeAndFetchFirst(Movie.class);
@@ -53,7 +53,7 @@ public class Movie {
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO movie(title, genre) VALUES (:title, :genre);";
+      String sql = "INSERT INTO movies(title, genre) VALUES (:title, :genre);";
       this.id = (int) con.createQuery(sql, true)
         .addParameter("title", this.title)
         .addParameter("genre", this.genre)
