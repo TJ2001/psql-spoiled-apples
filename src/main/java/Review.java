@@ -1,16 +1,16 @@
 // import java.util.Date;
 
-import java.time.LocalDateTime;
+// import java.util.Date;
+// import java.util.Calendar;
 import java.util.ArrayList;
 import java.util.List;
 import org.sql2o.*;
 
 public class Review {
   private String reviewer;
-  // private LocalDateTime createdAt;
-  // private Date createdAt;
   // private boolean apple;
   private String content;
+  // private Date createdAt;
   private int id;
   private int movieId;
 
@@ -18,7 +18,8 @@ public class Review {
     this.reviewer = reviewer;
     this.content = content;
     this.movieId = movieId;
-    // createdAt = LocalDateTime.now();
+    // Calendar calendar = Calendar.getInstance();
+    // this.createdAt = new Date(calendar.getTime().getTime());
   }
 
   public String getReviewer() {
@@ -28,6 +29,10 @@ public class Review {
   public String getContent() {
     return content;
   }
+
+  // public Date getCreatedAt() {
+  //   return createdAt;
+  // }
   //
   // public boolean isApple() {
   //   return apple;

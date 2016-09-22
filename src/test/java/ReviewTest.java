@@ -43,7 +43,7 @@ public class ReviewTest {
 
   // @Test
   // public void getCreatedAt_instantiatesWithCurrentTime_Today() {
-  //   assertEquals(LocalDateTime.now().getDayOfWeek(), mReview.getCreatedAt().getDayOfWeek());
+  //   assertEquals(Date.now().getDayOfWeek(), mReview.getCreatedAt().getDayOfWeek());
   // }
 
   @Test
