@@ -16,6 +16,20 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+    get("/movies/new", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("template", "templates/movie-form.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("/movies/:movie_id/reviews/new", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Movie movie = Movie.find(Integer.parseInt(request.params(":movie_id")));
+      model.put("movie", movie);
+      model.put("template", "templates/review-form.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
     get("/movies/:movie_id/reviews/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Movie movie = Movie.find(Integer.parseInt(request.params(":movie_id")));

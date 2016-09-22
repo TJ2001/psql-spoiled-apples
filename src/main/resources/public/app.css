@@ -1,0 +1,19 @@
+h6 {
+  font-size: 8pt;
+  opacity: 0.5;
+  color: gray;
+  text-align: center;
+  margin-top: 24px;
+}
+
+#mainHeader {
+  text-align: center;
+}
+
+#homeButton {
+  text-align: center;
+}
+
+#homeButton :hover {
+  cursor: pointer;
+}

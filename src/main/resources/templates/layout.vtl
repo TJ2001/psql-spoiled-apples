@@ -2,12 +2,17 @@
 <html>
   <head>
     <title>Spoiled Apples</title>
+    <link rel="stylesheet" href="/app.css">
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
   </head>
   <body>
-    <h3><a href="/">Home</a></h3>
     <div class="container">
-      #parse( $template )
+      <h2 id="mainHeader">Spoiled Apples</h2>
+      <h3 id="homeButton"><a href="/">Take me home!</a></h3>
+      <div class="jumbotron">
+        #parse( $template )
+      </div>
     </div>
+    <h6>Spoiled Apples copyright Ryan Vinyard and Tim Jung 2016. All similarities to existing review websites (especially Rotten Tomatoes) is 100% a coincidence and this is a totally original idea. Do not steal.</h6>
   </body>
 </html>

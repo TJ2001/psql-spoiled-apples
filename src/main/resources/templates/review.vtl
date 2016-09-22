@@ -11,8 +11,8 @@
   <button type="submit" class="btn btn-info">Update Review</button>
 </form>
 
-<form action="/categories/$review.getMovieId()/reviews/$review.getId()/delete" method="post">
+<form action="/movies/$review.getMovieId()/reviews/$review.getId()/delete" method="post">
   <button type="submit" class="btn btn-danger" id="delete-review">Delete Review</button>
 </form>
 
-<a href="/categories/$movie.getId()">Return to $movie.getTitle()</a>
+<a href="/movies/$movie.getId()">Return to $movie.getTitle()</a>

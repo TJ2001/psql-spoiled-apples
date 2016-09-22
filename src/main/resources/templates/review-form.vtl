@@ -1,6 +1,7 @@
 <p>Add a new Review:</p>
 
 <form action="/reviews" method="post">
+  <input id="movieId" name="movieId" type="hidden" value="$movie.getId()">
   <label for="reviewer">User:</label>
   <input id="reviewer" name="reviewer" type="text">
   <label for="content">Review:</label>
