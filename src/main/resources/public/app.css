@@ -24,6 +24,14 @@ h6 {
   height: 148px;
 }
 
+#contentReview {
+  height: 148px;
+}
+
+#content {
+  height: 148px;
+}
+
 #titleSubmit {
   margin-top: 12px;
 }

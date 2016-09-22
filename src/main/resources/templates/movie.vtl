@@ -1,8 +1,10 @@
-<h1>$movie.getTitle() reviews:</h1>
+<h1>$movie.getTitle()</h1>
+<h2>$movie.getGenre()</h2>
+<h3>Reviews:</h3>
 
 <ul>
   #foreach($review in $movie.getReviews())
-   <li><a href="/movies/$movie.getId()/reviews/$review.getId()">$review.getReviewer() <br> $review.getContent()</a></li>
+   <li><a href="/movies/$movie.getId()/reviews/$review.getId()">$review.getReviewer()</a></li>
   #end
 </ul>
 
@@ -11,4 +13,5 @@
 </form>
 
 <a href="/movies/$movie.getId()/reviews/new">Add a new review</a>
+</br>
 <a href="/movies">All movies</a>

@@ -6,7 +6,7 @@
 
 <form action="/movies/$review.getMovieId()/reviews/$review.getId()" method="post">
   <label for="content">Review</label>
-  <input id="content" name="content" type="text">
+<textarea name="content" cols="140" rows="5" type="text" autocomplete="off"></textarea>
   <button type="submit" class="btn btn-info">Update Review</button>
 </form>
 
