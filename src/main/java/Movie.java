@@ -26,7 +26,7 @@ public class Movie {
   }
 
   public static List<Movie> all() {
-    String sql = "SELECT * FROM movies;";
+    String sql = "SELECT * FROM movies ORDER BY title;";
     try(Connection con = DB.sql2o.open()) {
       return con.createQuery(sql).executeAndFetch(Movie.class);
     }
@@ -55,6 +55,7 @@ public class Movie {
     try(Connection con = DB.sql2o.open()) {
       String sql = "INSERT INTO movies(title, genre) VALUES (:title, :genre);";
       this.id = (int) con.createQuery(sql, true)
+
         .addParameter("title", this.title)
         .addParameter("genre", this.genre)
         .executeUpdate()
@@ -71,6 +72,15 @@ public class Movie {
       return this.getTitle().equals(newMovie.getTitle()) &&
              this.getGenre().equals(newMovie.getGenre()) &&
              this.getId() == newMovie.getId();
+    }
+  }
+
+  public void delete() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "DELETE FROM movies WHERE id=:id;";
+      con.createQuery(sql)
+        .addParameter("id", id)
+        .executeUpdate();
     }
   }
 }

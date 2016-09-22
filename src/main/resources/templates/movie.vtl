@@ -2,9 +2,13 @@
 
 <ul>
   #foreach($review in $movie.getReviews())
-   <li><a href="/movies/$movie.getId()/reviews/$review.getId()">$review.getReviewer()</a></li>
+   <li><a href="/movies/$movie.getId()/reviews/$review.getId()">$review.getReviewer() <br> $review.getContent()</a></li>
   #end
 </ul>
+
+<form action="/movies/$movie.getId()/delete" method="post">
+  <button type="submit" class="btn btn-danger" id="delete-movie">Delete Movie</button>
+</form>
 
 <a href="/movies/$movie.getId()/reviews/new">Add a new review</a>
 <a href="/movies">All movies</a>

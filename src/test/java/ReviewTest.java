@@ -7,11 +7,6 @@ import java.time.LocalDateTime;
 public class ReviewTest {
   private Review mReview;
 
-  // @Before
-  // public void openConnection() {
-  //   DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/spoiled_apples_test", null, null);
-  // }
-
   @Before
   public void initialize(){
     mReview = new Review("Reviewer123", "This movie is awesome.", 1);

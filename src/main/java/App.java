@@ -43,9 +43,9 @@ public class App {
     post("/movies/:movie_id/reviews/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Review review = Review.find(Integer.parseInt(request.params("id")));
-      String reviewer = request.queryParams("reviewer");
+      String content = request.queryParams("content");
       Movie movie = Movie.find(review.getMovieId());
-      review.update(reviewer);
+      review.update(content);
       String url = String.format("/movies/%d/reviews/%d", movie.getId(), review.getId());
       response.redirect(url);
       return new ModelAndView(model, layout);
@@ -58,6 +58,13 @@ public class App {
       review.delete();
       model.put("movie", movie);
       model.put("template", "templates/movie.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("/movies/:movie_id/delete", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Movie movie = Movie.find(Integer.parseInt(request.params(":movie_id")));
+      response.redirect("/");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
@@ -83,7 +90,8 @@ public class App {
 
     post("/movies", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      String title = request.queryParams("title");
+      String titleInput = request.queryParams("title");
+      String title = titleInput.substring(0, 1).toUpperCase() + titleInput.substring(1);
       String genre = request.queryParams("genre");
       Movie newMovie = new Movie(title, genre);
       newMovie.save();
