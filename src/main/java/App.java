@@ -64,6 +64,7 @@ public class App {
     post("/movies/:movie_id/delete", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Movie movie = Movie.find(Integer.parseInt(request.params(":movie_id")));
+      movie.delete();
       response.redirect("/");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());

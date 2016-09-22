@@ -8,6 +8,8 @@ h6 {
 
 #mainHeader {
   text-align: center;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 64px;
 }
 
 #homeButton {
@@ -16,4 +18,21 @@ h6 {
 
 #homeButton :hover {
   cursor: pointer;
+}
+
+#contentHome {
+  height: 148px;
+}
+
+#titleSubmit {
+  margin-top: 12px;
+}
+
+.jumbotron {
+  margin-top: 16px;
+}
+
+#logo {
+  height: 60px;
+  width: auto;
 }
